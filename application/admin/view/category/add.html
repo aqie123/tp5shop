@@ -1,0 +1,89 @@
+{include file="public/header"}
+<body>
+<div class="page-container">
+    <form action="{:url('category/save')}" method="post" class="form form-horizontal" id="form-category-add">
+        <div id="tab-category" class="HuiTab">
+            <div class="tabBar cl">
+                <span>添加分类</span>
+            </div>
+            <div class="tabCon">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">栏目ID：</label>
+                    <div class="formControls col-xs-8 col-sm-9">11230</div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">
+                        <span class="c-red">*</span>
+                        上级栏目：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+						<span class="select-box">
+						<select class="select" id="sel_Sub" name="parent_id" >
+							<option value="0">顶级分类</option>
+							{volist name="categorys" id="vo"}
+                            <option value="{$vo.id}">--{$vo.name}</option>
+                            {/volist}
+						</select>
+						</span>
+                    </div>
+                    <div class="col-3">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">
+                        <span class="c-red">*</span>
+                        分类名称：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="" id="" name="name">
+                    </div>
+                    <div class="col-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-9 col-offset-3">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;添加&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</div>
+
+{include file="public/foot"}
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__STATIC__/admin/hui/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__STATIC__/admin/hui/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="__STATIC__/admin/hui/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="__STATIC__/admin/hui/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+
+        $.Huitab("#tab-category .tabBar span","#tab-category .tabCon","current","click","0");
+    /*
+        $("#form-category-add").validate({
+            rules:{
+
+            },
+            onkeyup:false,
+            focusCleanup:true,
+            success:"valid",
+            submitHandler:function(form){
+                //$(form).ajaxSubmit();
+                var index = parent.layer.getFrameIndex(window.name);
+                //parent.$('.btn-refresh').click();
+                //parent.layer.close(index);
+            }
+        });
+     */
+    });
+
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

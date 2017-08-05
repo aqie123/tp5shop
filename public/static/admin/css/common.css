@@ -1,0 +1,17 @@
+/* 商家分类下面的分页样式biao*/
+#aqiepage{
+    width:90%;
+    margin-bottom: 100px;
+    padding-right: 40px;
+    float: right;
+    text-align: right;
+}
+#aqiepage .pagination li{
+    display: inline-block;
+}
+#aqiepage .pagination .active{
+    color: #f00;
+}
+#aqiepage .pagination .disabled{
+    color: #eee;
+}
